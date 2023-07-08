@@ -9,6 +9,8 @@ public class Pistol : MonoBehaviour
     public Transform barrel;
     private bool canShoot;
     public float bulletSpeed;
+    public float fireRate;
+    public float lifeSpan;
 
 
     private void Start()
@@ -20,9 +22,14 @@ public class Pistol : MonoBehaviour
 
     private void Update()
     {
+        if (lifeSpan <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         if (heroMovement.enemyInSightRange)
         {
-            Invoke("Shoot", 0.5f);
+            Invoke("Shoot", 0.2f);
         }
     }
 
@@ -30,10 +37,11 @@ public class Pistol : MonoBehaviour
     {
         if (canShoot)
         {
-            GameObject bullet = Instantiate(pistolBullet, barrel.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().velocity = barrel.forward * bulletSpeed; ;
             canShoot = false;
-            Invoke("FireRate", 0.8f);
+            lifeSpan--;
+            GameObject bullet = Instantiate(pistolBullet, barrel.position, barrel.rotation);
+            bullet.GetComponent<Rigidbody>().velocity = barrel.forward * bulletSpeed; ;
+            Invoke("FireRate", fireRate);
         }
     }
 

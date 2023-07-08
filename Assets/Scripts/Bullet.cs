@@ -5,7 +5,13 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage;
+    public float lifeSpan;
 
+    private void Start()
+    {
+        transform.Rotate(90, 0, 0);
+        Destroy(gameObject, lifeSpan);
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
