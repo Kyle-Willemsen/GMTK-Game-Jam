@@ -6,32 +6,52 @@ public class GameManager : MonoBehaviour
 {
     public List<Transform> enemySpawnPoints = new List<Transform>();
     public List<GameObject> enemies = new List<GameObject>();
+    public List<GameObject> weapons = new List<GameObject>();
+    public List<Transform> weaponSpawnPoints = new List<Transform>();
 
-    public float spawnTime;
-    private float timer;
+    public float enemySpawnTime;
+    private float enemyTimer;
+
+    public float weaponSpawnTime;
+    private float weaponTimer;
+
 
     private void Start()
     {
-        timer = spawnTime;
+        enemyTimer = enemySpawnTime;
     }
 
 
     private void Update()
     {
-        if (timer > 0)
+        if (enemyTimer > 0)
         {
-            timer -= Time.deltaTime;
+            enemyTimer -= Time.deltaTime;
         }
-        if (timer <= 0)
+        if (enemyTimer <= 0)
         {
             SpawnEnemy();
+        }
+        if (weaponTimer > 0)
+        {
+            weaponTimer -= Time.deltaTime;
+        }
+        if (weaponTimer <= 0)
+        {
+            SpawnWeapon();
         }
     }
 
     private void SpawnEnemy()
     {
         Instantiate(enemies[Random.Range(0, enemies.Count)], enemySpawnPoints[Random.Range(0, enemySpawnPoints.Count)].position, Quaternion.identity);
-        timer = spawnTime;
+        enemyTimer = enemySpawnTime;
+    }
+
+    private void SpawnWeapon()
+    {
+        Instantiate(weapons[Random.Range(0, weapons.Count)], weaponSpawnPoints[Random.Range(0, weaponSpawnPoints.Count)].position, Quaternion.identity);
+        weaponTimer = weaponSpawnTime;
     }
 
 }

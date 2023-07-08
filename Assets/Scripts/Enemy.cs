@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     private Transform player;
     private NavMeshAgent navAgent;
+    HeroMovement heroMovement;
 
     public float health;
     public float currentSpeed;
@@ -15,10 +16,15 @@ public class Enemy : MonoBehaviour
     private bool canAttack;
     public float attackReset;
 
+    public GameObject floatingText;
+    //public GameObject weaponVariant;
+
     private void Start()
     {
         player = GameObject.Find("Hero").transform;
         navAgent = gameObject.GetComponent<NavMeshAgent>();
+        heroMovement = GameObject.Find("Hero").GetComponent<HeroMovement>();
+        heroMovement.AllEnemies.Add(this.gameObject);
 
         navAgent.speed = baseSpeed;
         baseSpeed = currentSpeed;
@@ -32,13 +38,16 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            heroMovement.AllEnemies.Remove(this.gameObject);
+            heroMovement.nearestDistance = 1000;
         }
-
     }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
+        var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
+        ft.GetComponent<TextMesh>().text = damage.ToString();
     }
 
     private void OnTriggerStay(Collider other)

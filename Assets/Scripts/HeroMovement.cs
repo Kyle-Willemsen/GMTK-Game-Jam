@@ -29,10 +29,10 @@ public class HeroMovement : MonoBehaviour
     public bool isShotgun;
     public bool isMachinegun;
 
-    public GameObject[] AllEnemies;
+    public List<GameObject> AllEnemies = new List<GameObject>();
     public GameObject NearestEnemy;
     float distance;
-    float nearestDistance = 1000;
+    public float nearestDistance = 1000;
 
 
 
@@ -78,9 +78,9 @@ public class HeroMovement : MonoBehaviour
             Destroy(gameObject);
         }
 
-        AllEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        //AllEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        for (int i = 0; i < AllEnemies.Length; i++)
+        for (int i = 0; i < AllEnemies.Count; i++)
         {
             distance = Vector3.Distance(this.transform.position, AllEnemies[i].transform.position);
 

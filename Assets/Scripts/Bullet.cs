@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
+            CameraShake.Instance.ShakeCamera(1.6f, .1f);
         }
         else
         {

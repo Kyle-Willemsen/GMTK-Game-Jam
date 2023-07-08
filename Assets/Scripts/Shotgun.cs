@@ -51,6 +51,7 @@ public class Shotgun : MonoBehaviour
                 GameObject bulletClone = Instantiate(bullet, barrels[i].position, barrels[i].rotation);
                 bulletClone.GetComponent<Rigidbody>().velocity = barrels[i].forward * bulletSpeed;
                 Invoke("FireRate", fireRate);
+                CameraShake.Instance.ShakeCamera(2.5f, .1f);
             }
         }
 

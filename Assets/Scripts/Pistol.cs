@@ -42,6 +42,7 @@ public class Pistol : MonoBehaviour
             GameObject bullet = Instantiate(pistolBullet, barrel.position, barrel.rotation);
             bullet.GetComponent<Rigidbody>().velocity = barrel.forward * bulletSpeed; ;
             Invoke("FireRate", fireRate);
+            CameraShake.Instance.ShakeCamera(2, .15f);
         }
     }
 

@@ -42,6 +42,7 @@ public class MachineGun : MonoBehaviour
             GameObject bulletClone = Instantiate(bullet, barell.position, barell.rotation);
             bulletClone.GetComponent<Rigidbody>().velocity = barell.forward * bulletSpeed;
             Invoke("FireRate", fireRate);
+            CameraShake.Instance.ShakeCamera(2.4f, .15f);
         }
 
     }
