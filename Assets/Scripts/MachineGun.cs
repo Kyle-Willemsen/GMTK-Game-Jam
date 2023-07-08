@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MachineGun : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class MachineGun : MonoBehaviour
     public float lifeSpan;
     bool canShoot;
     public Transform barell;
-
+    //public TextMeshProUGUI bulletCounter;
     private void Start()
     {
         heroMovement = GameObject.Find("Hero").GetComponent<HeroMovement>();
@@ -20,6 +21,7 @@ public class MachineGun : MonoBehaviour
     }
     private void Update()
     {
+        //bulletCounter.text = lifeSpan + "";
         if (heroMovement.enemyInSightRange)
         {
             Shoot();

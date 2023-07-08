@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Hero
   - Enemy
+  - MachineGun
+  - Pistol
+  - Shotgun
   layers:
   - Default
   - TransparentFX

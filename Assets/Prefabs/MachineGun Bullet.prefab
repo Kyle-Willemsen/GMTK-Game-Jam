@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3294393550612150851}
   - component: {fileID: 7636916260472484284}
   m_Layer: 0
-  m_Name: Pistol Bullet
+  m_Name: MachineGun Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0fa95d5ff7ded4eafa18439820fede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 40
   lifeSpan: 2
 --- !u!54 &7636916260472484284
 Rigidbody:

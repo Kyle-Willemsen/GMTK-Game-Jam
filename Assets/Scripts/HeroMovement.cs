@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using TMPro;
 public class HeroMovement : MonoBehaviour
 {
     public Healthbar healthbar;
@@ -34,6 +34,7 @@ public class HeroMovement : MonoBehaviour
     float distance;
     public float nearestDistance = 1000;
 
+    public TextMeshProUGUI tmpro;
 
 
     private void Start()
@@ -47,6 +48,7 @@ public class HeroMovement : MonoBehaviour
 
     private void Update()
     {
+        
         enemyInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsEnemy);
 
         if (!enemyInSightRange)
@@ -61,16 +63,25 @@ public class HeroMovement : MonoBehaviour
         if (isPistol)
         {
             sightRange = pistolRange;
+            tmpro.text = GetComponentInChildren<Pistol>().lifeSpan + "";
+            isShotgun = false;
+            isMachinegun = false;
         }
 
         if (isShotgun)
         {
             sightRange = shotgunRange;
+            tmpro.text = GetComponentInChildren<Shotgun>().lifeSpan + "";
+            isPistol = false;
+            isMachinegun = false;
         }
 
         if (isMachinegun)
         {
             sightRange = machinegunRange;
+            tmpro.text = GetComponentInChildren<MachineGun>().lifeSpan + "";
+            isPistol = false;
+            isShotgun = false;
         }
 
         if (currentHealth <= 0)
@@ -126,8 +137,8 @@ public class HeroMovement : MonoBehaviour
 
     private void Retreat()
     {
-        //transform.LookAt(AllEnemies.transform);
-        //navAgent.SetDestination(transform.position - enemy.transform.position);
+        transform.LookAt(AllEnemies[0].transform);
+        navAgent.SetDestination(transform.position - AllEnemies[0].transform.position);
         Debug.Log("retreating");
     }
 

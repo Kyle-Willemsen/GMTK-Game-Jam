@@ -29,6 +29,18 @@ public class ItemPickUp : MonoBehaviour
         }
         if (other.gameObject.tag == "Hero")
         {
+            if (gameObject.tag == "MachineGun")
+            {
+                other.gameObject.GetComponent<HeroMovement>().isMachinegun = true;
+            }
+            if (gameObject.tag == "Shotgun")
+            {
+                other.gameObject.GetComponent<HeroMovement>().isShotgun = true;
+            }
+            if (gameObject.tag == "Pistol")
+            {
+                other.gameObject.GetComponent<HeroMovement>().isPistol = true;
+            }
             Destroy(gameObject);
             Instantiate(weaponHero, heroHands.position, heroHands.rotation, heroHands);
         }
