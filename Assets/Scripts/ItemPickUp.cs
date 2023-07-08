@@ -30,7 +30,7 @@ public class ItemPickUp : MonoBehaviour
         if (other.gameObject.tag == "Hero")
         {
             Destroy(gameObject);
-            Instantiate(weaponHero, heroHands.position, Quaternion.identity, heroHands);
+            Instantiate(weaponHero, heroHands.position, heroHands.rotation, heroHands);
         }
     }
 
