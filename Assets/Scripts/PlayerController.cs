@@ -55,13 +55,4 @@ public class PlayerController : MonoBehaviour
             transform.LookAt(facingDir);
         }
     }
-
-    private void Throw()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && hasItem)
-        {
-            //rb.AddForce(gameObject.transform.forward * 10);
-            Debug.Log("Throw");
-        }
-    }
 }

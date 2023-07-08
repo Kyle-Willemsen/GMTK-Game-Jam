@@ -6,6 +6,11 @@ public class Bullet : MonoBehaviour
 {
     public float damage;
 
+
+    private void Start()
+    {
+        transform.Rotate(90, 0, 0);
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")

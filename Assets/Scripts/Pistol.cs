@@ -30,7 +30,7 @@ public class Pistol : MonoBehaviour
     {
         if (canShoot)
         {
-            GameObject bullet = Instantiate(pistolBullet, barrel.position, Quaternion.identity);
+            GameObject bullet = Instantiate(pistolBullet, barrel.position, barrel.rotation);
             bullet.GetComponent<Rigidbody>().velocity = barrel.forward * bulletSpeed; ;
             canShoot = false;
             Invoke("FireRate", 0.8f);
