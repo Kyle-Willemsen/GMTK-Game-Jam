@@ -11,8 +11,10 @@ public class Menus : MonoBehaviour
     AudioManager audioManager;
     AudioSource mainMusic;
     public GameObject pauseButton;
-
+    public GameObject objectiveScreen;
     public TextMeshProUGUI finalGameTime;
+    public GameObject title;
+    public GameObject buttons;
 
     private void Start()
     {
@@ -65,6 +67,20 @@ public class Menus : MonoBehaviour
         pauseButton.SetActive(false);
 
         finalGameTime.text = "He survived " + GetComponent<GameManager>().gameTime.ToString("0") + " seconds in hell";
+    }
+
+    public void Objective()
+    {
+        objectiveScreen.SetActive(true);
+        title.SetActive(false);
+        buttons.SetActive(false);
+    }
+
+    public void QuitObjective()
+    {
+        objectiveScreen.SetActive(false);
+        title.SetActive(true);
+        buttons.SetActive(true);
     }
 
     public void LoadMainMenu()
