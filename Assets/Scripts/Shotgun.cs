@@ -13,11 +13,13 @@ public class Shotgun : MonoBehaviour
     bool canShoot;
     //public Transform barell;
     public List<Transform> barrels = new List<Transform>();
+    AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         heroMovement = GameObject.Find("Hero").GetComponent<HeroMovement>();
+        audioManager = FindObjectOfType<AudioManager>();
         canShoot = true;
     }
 
@@ -45,6 +47,7 @@ public class Shotgun : MonoBehaviour
         {
             for (int i = 0; i < barrels.Count; i++)
             {
+                audioManager.Play("ShotgunShoot");
                 canShoot = false;
                 heroMovement.ammoCounter--;
                 lifeSpan--;

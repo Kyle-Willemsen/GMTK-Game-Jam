@@ -11,11 +11,12 @@ public class Pistol : MonoBehaviour
     public float bulletSpeed;
     public float fireRate;
     public float lifeSpan;
-
+    AudioManager audioManager;
 
     private void Start()
     {
         heroMovement = GameObject.Find("Hero").GetComponent<HeroMovement>();
+        audioManager = FindObjectOfType<AudioManager>();
         canShoot = true;
     }
 
@@ -37,6 +38,7 @@ public class Pistol : MonoBehaviour
     {
         if (canShoot)
         {
+            audioManager.Play("PistolShoot");
             canShoot = false;
             heroMovement.ammoCounter--;
             lifeSpan--;

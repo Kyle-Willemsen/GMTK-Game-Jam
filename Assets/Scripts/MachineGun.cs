@@ -13,10 +13,14 @@ public class MachineGun : MonoBehaviour
     public float lifeSpan;
     bool canShoot;
     public Transform barell;
+    AudioManager audioManager;
+
+
     //public TextMeshProUGUI bulletCounter;
     private void Start()
     {
         heroMovement = GameObject.Find("Hero").GetComponent<HeroMovement>();
+        audioManager = FindObjectOfType<AudioManager>();
         canShoot = true;
     }
     private void Update()
@@ -39,6 +43,7 @@ public class MachineGun : MonoBehaviour
 
         if (canShoot)
         {
+            audioManager.Play("MachinegunShoot");
             canShoot = false;
             heroMovement.ammoCounter--;
             lifeSpan--;

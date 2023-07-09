@@ -60,10 +60,10 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)//, Vector3 direction)
     {
+        audioManager.Play("HitMarker");
         health -= damage;
         var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
         ft.GetComponent<TextMesh>().text = damage.ToString();
-        audioManager.Play("Hit Marker");
 
         //Knockback(direction);
     }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> weapons = new List<GameObject>();
     public List<Transform> weaponSpawnPoints = new List<Transform>();
+    private Menus menus;
 
     public float enemySpawnTime;
     private float enemyTimer;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        menus = GetComponent<Menus>();
         enemyTimer = enemySpawnTime;
     }
 
@@ -39,6 +41,11 @@ public class GameManager : MonoBehaviour
         if (weaponTimer <= 0)
         {
             SpawnWeapon();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            menus.Pause();
         }
     }
 

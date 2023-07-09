@@ -13,6 +13,7 @@ public class ItemHands : MonoBehaviour
     //Rigidbody rb;
     public bool hasItem;
     public GameObject weapon;
+    AudioManager audioManager;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class ItemHands : MonoBehaviour
         player = GameObject.Find("Player");
         //rb = gameObject.GetComponent<Rigidbody>();
         pickupLoc = GameObject.Find("PickUpLocation").transform;
+        audioManager = FindObjectOfType<AudioManager>();
         hasItem = true;
     }
 
@@ -28,6 +30,7 @@ public class ItemHands : MonoBehaviour
         forceImpulse = player.transform.forward * force + transform.up * upwardForce;
         if (Input.GetKeyDown(KeyCode.Mouse0) && hasItem)
         {
+            audioManager.Play("PlayerThrow");
             Destroy(gameObject);
             GameObject clone = Instantiate(weapon, pickupLoc.position, Quaternion.identity);
             clone.GetComponent<Rigidbody>().AddForce(forceImpulse, ForceMode.Impulse);

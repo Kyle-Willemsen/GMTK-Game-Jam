@@ -38,6 +38,11 @@ public class HeroMovement : MonoBehaviour
     public float ammoCounter;
 
     public bool hasWeapon;
+    AudioManager audioManager;
+
+    public GameObject arm1;
+    public GameObject arm2;
+
 
    // public float knockbackForce;
    // public float knockbackTime;
@@ -47,6 +52,7 @@ public class HeroMovement : MonoBehaviour
     {
         currentHealth = maxHealth;
 
+        audioManager = FindObjectOfType<AudioManager>();
         navAgent = gameObject.GetComponent<NavMeshAgent>();
         navAgent.speed = playerSpeed;
         healthbar.SetMaxHealth(maxHealth);
@@ -59,14 +65,15 @@ public class HeroMovement : MonoBehaviour
         if (ammoCounter <= 0)
         {
             hasWeapon = false;
+            arm1.SetActive(true);
+            arm2.SetActive(true);
         }
         else
         {
             hasWeapon = true;
+            arm1.SetActive(false);
+            arm2.SetActive(false);
         }
-        Debug.Log(isPistol);
-        Debug.Log(isMachinegun);
-        Debug.Log(isShotgun);
 
         if (!hasWeapon)
         {
@@ -122,6 +129,8 @@ public class HeroMovement : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            audioManager.Play("Death");
+            GameObject.Find("GameManager").GetComponent<Menus>().DeathScreen();
         }
         if (currentHealth > 100)
         {
@@ -166,6 +175,7 @@ public class HeroMovement : MonoBehaviour
     {
         currentHealth += health;
         healthbar.SetHealth(currentHealth);
+        audioManager.Play("Healthpack");
     }
     private void SearchWalkPoint()
     {
@@ -188,6 +198,7 @@ public class HeroMovement : MonoBehaviour
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
+        audioManager.Play("Ouch");
 
         //Knockback(direction);
     }
