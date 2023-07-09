@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public float attackReset;
 
     public GameObject floatingText;
+    AudioManager audioManager;
 
     //public float knockbackForce;
     //public float knockbackTime;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         player = GameObject.Find("Hero").transform;
         navAgent = gameObject.GetComponent<NavMeshAgent>();
         heroMovement = GameObject.Find("Hero").GetComponent<HeroMovement>();
@@ -61,6 +63,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
         var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
         ft.GetComponent<TextMesh>().text = damage.ToString();
+        audioManager.Play("Hit Marker");
 
         //Knockback(direction);
     }
