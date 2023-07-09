@@ -33,7 +33,7 @@ public class ItemHands : MonoBehaviour
             clone.GetComponent<Rigidbody>().AddForce(forceImpulse, ForceMode.Impulse);
             //transform.parent = null;
             //Invoke("EnableCollider", 0.5f);
-            //hasItem = false;
+            hasItem = false;
         }
     }
 

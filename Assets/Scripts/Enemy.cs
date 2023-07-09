@@ -17,6 +17,11 @@ public class Enemy : MonoBehaviour
     public float attackReset;
 
     public GameObject floatingText;
+
+    //public float knockbackForce;
+    //public float knockbackTime;
+    //private float knockbackCounter;
+
     //public GameObject weaponVariant;
 
     private void Start()
@@ -34,6 +39,14 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         navAgent.SetDestination(player.position);
+       // if (knockbackCounter <= 0)
+       // {
+       //     
+       // }
+       // else
+       // {
+       //     knockbackCounter -= Time.deltaTime;
+       // }
 
         if (health <= 0)
         {
@@ -43,11 +56,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage)//, Vector3 direction)
     {
         health -= damage;
         var ft = Instantiate(floatingText, transform.position, Quaternion.identity, transform);
         ft.GetComponent<TextMesh>().text = damage.ToString();
+
+        //Knockback(direction);
     }
 
     private void OnTriggerStay(Collider other)
@@ -56,12 +71,23 @@ public class Enemy : MonoBehaviour
         {
             if (canAttack)
             {
+                Vector3 hitDireciton = other.transform.position - transform.position;
+                hitDireciton = hitDireciton.normalized;
+
                 canAttack = false;
-                other.GetComponent<HeroMovement>().TakeDamage(damage);
+                other.GetComponent<HeroMovement>().TakeDamage(damage);//, hitDireciton);
                 Invoke("AttackReset", attackReset);
             }
         }
     }
+
+    //private void Knockback(Vector3 direction)
+    //{
+    //    Debug.Log("Knockem");
+    //    knockbackCounter = knockbackTime;
+    //
+    //    transform.forward = direction * knockbackForce;
+    //}
 
     private void AttackReset()
     {

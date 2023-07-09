@@ -10,7 +10,15 @@ public class PlayerController : MonoBehaviour
     private Vector3 pointToLook;
     private Vector3 move;
     Camera cam;
-    bool hasItem;
+    //bool hasItem;
+
+    [Header("Gravity")]
+    public LayerMask layermask;
+    public float groundDistance = 0.4f;
+    public bool isGrounded;
+    public Transform groundCheck;
+    private Vector3 velocity;
+    public float gravity;
 
 
 
@@ -24,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         MouseLook();
+        Gravity();
     }
 
     private void Movement()
@@ -54,5 +63,18 @@ public class PlayerController : MonoBehaviour
 
             transform.LookAt(facingDir);
         }
+    }
+
+    private void Gravity()
+    {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, layermask);
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
 }

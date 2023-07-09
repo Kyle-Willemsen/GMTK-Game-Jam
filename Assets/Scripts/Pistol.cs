@@ -24,7 +24,7 @@ public class Pistol : MonoBehaviour
     {
         if (lifeSpan <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 0.1f);
         }
 
         if (heroMovement.enemyInSightRange)
@@ -38,6 +38,7 @@ public class Pistol : MonoBehaviour
         if (canShoot)
         {
             canShoot = false;
+            heroMovement.ammoCounter--;
             lifeSpan--;
             GameObject bullet = Instantiate(pistolBullet, barrel.position, barrel.rotation);
             bullet.GetComponent<Rigidbody>().velocity = barrel.forward * bulletSpeed; ;

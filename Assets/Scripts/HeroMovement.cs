@@ -35,7 +35,13 @@ public class HeroMovement : MonoBehaviour
     public float nearestDistance = 1000;
 
     public TextMeshProUGUI tmpro;
+    public float ammoCounter;
 
+    public bool hasWeapon;
+
+   // public float knockbackForce;
+   // public float knockbackTime;
+   // private float knockbackCounter;
 
     private void Start()
     {
@@ -48,7 +54,27 @@ public class HeroMovement : MonoBehaviour
 
     private void Update()
     {
-        
+        tmpro.text = ammoCounter + "";
+
+        if (ammoCounter <= 0)
+        {
+            hasWeapon = false;
+        }
+        else
+        {
+            hasWeapon = true;
+        }
+        Debug.Log(isPistol);
+        Debug.Log(isMachinegun);
+        Debug.Log(isShotgun);
+
+        if (!hasWeapon)
+        {
+            isPistol = false;
+            isMachinegun = false;
+            isShotgun = false;
+        }
+
         enemyInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsEnemy);
 
         if (!enemyInSightRange)
@@ -63,31 +89,45 @@ public class HeroMovement : MonoBehaviour
         if (isPistol)
         {
             sightRange = pistolRange;
-            tmpro.text = GetComponentInChildren<Pistol>().lifeSpan + "";
+            //tmpro.text = GetComponentInChildren<Pistol>().lifeSpan + "";
+            //ammoCounter = GetComponentInChildren<Pistol>().lifeSpan;
+            //ammoCounter = 6;
             isShotgun = false;
             isMachinegun = false;
+            hasWeapon = true;
         }
 
         if (isShotgun)
         {
             sightRange = shotgunRange;
-            tmpro.text = GetComponentInChildren<Shotgun>().lifeSpan + "";
+            //tmpro.text = GetComponentInChildren<Shotgun>().lifeSpan + "";
+            //ammoCounter = GetComponentInChildren<Shotgun>().lifeSpan;
+            //ammoCounter = 9;
             isPistol = false;
             isMachinegun = false;
+            hasWeapon = true;
         }
 
         if (isMachinegun)
         {
             sightRange = machinegunRange;
-            tmpro.text = GetComponentInChildren<MachineGun>().lifeSpan + "";
+            //tmpro.text = GetComponentInChildren<MachineGun>().lifeSpan + "";
+            //ammoCounter = GetComponentInChildren<MachineGun>().lifeSpan;
+            //ammoCounter = 15;
             isPistol = false;
             isShotgun = false;
+            hasWeapon = true;
         }
 
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }
+        if (currentHealth > 100)
+        {
+            currentHealth = 100;
+        }
+
 
         //AllEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -120,10 +160,13 @@ public class HeroMovement : MonoBehaviour
         {
             walkPointSet = false;
         }
-        Debug.Log("Patrolling");
     }
 
-
+    public void IncreaseHealth(int health)
+    {
+        currentHealth += health;
+        healthbar.SetHealth(currentHealth);
+    }
     private void SearchWalkPoint()
     {
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
@@ -139,15 +182,23 @@ public class HeroMovement : MonoBehaviour
     {
         transform.LookAt(AllEnemies[0].transform);
         navAgent.SetDestination(transform.position - AllEnemies[0].transform.position);
-        Debug.Log("retreating");
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage)//, Vector3 direction)
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
+
+        //Knockback(direction);
     }
 
+   // private void Knockback(Vector3 direction)
+   // {
+   //     Debug.Log("Knockem");
+   //     knockbackCounter = knockbackTime;
+   //
+   //     transform.forward = direction * knockbackForce;
+   // }
 
     private void OnDrawGizmos()
     {

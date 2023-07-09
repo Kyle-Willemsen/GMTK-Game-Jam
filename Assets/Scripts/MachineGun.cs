@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+//using TMPro;
 
 public class MachineGun : MonoBehaviour
 {
@@ -29,7 +29,7 @@ public class MachineGun : MonoBehaviour
 
         if (lifeSpan <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 0.1f);
         }
         
     }
@@ -40,6 +40,7 @@ public class MachineGun : MonoBehaviour
         if (canShoot)
         {
             canShoot = false;
+            heroMovement.ammoCounter--;
             lifeSpan--;
             GameObject bulletClone = Instantiate(bullet, barell.position, barell.rotation);
             bulletClone.GetComponent<Rigidbody>().velocity = barell.forward * bulletSpeed;

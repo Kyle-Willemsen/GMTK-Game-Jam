@@ -9,6 +9,7 @@ TagManager:
   - MachineGun
   - Pistol
   - Shotgun
+  - HealthPack
   layers:
   - Default
   - TransparentFX

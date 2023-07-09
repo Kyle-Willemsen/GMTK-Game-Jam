@@ -30,13 +30,12 @@ public class Shotgun : MonoBehaviour
         }
         if (lifeSpan <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 0.1f);
         }
     }
 
     private void Shoot()
     {
-        Debug.Log(lifeSpan);
         //Transform[] barrels;
         //foreach (Transform b in barrels)
         //{
@@ -47,6 +46,7 @@ public class Shotgun : MonoBehaviour
             for (int i = 0; i < barrels.Count; i++)
             {
                 canShoot = false;
+                heroMovement.ammoCounter--;
                 lifeSpan--;
                 GameObject bulletClone = Instantiate(bullet, barrels[i].position, barrels[i].rotation);
                 bulletClone.GetComponent<Rigidbody>().velocity = barrels[i].forward * bulletSpeed;
