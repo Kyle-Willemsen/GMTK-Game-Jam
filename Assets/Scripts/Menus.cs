@@ -8,31 +8,39 @@ public class Menus : MonoBehaviour
     public GameObject pauseScreen;
     public GameObject deathScreen;
     AudioManager audioManager;
-    AudioSource music;
+    AudioSource mainMusic;
 
     private void Start()
     {
-        music = GetComponent<AudioSource>();
+        mainMusic = GetComponent<AudioSource>();
         audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void Resume()
     {
         audioManager.Stop("Menu Music");
-        music.Play();
+        mainMusic.Play();
         Time.timeScale = 1;
         pauseScreen.SetActive(false);
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene("MainScene");
+        mainMusic.Play();
+        audioManager.Stop("Menu Music");
+        //Time.timeScale = 1;
     }
 
     public void Pause()
     {
         audioManager.Play("Menu Music");
-        music.Pause();
+        mainMusic.Pause();
         Time.timeScale = 0;
         pauseScreen.SetActive(true);
     }
 
-    public void LoadLevel1()
+    public void Retry()
     {
         pauseScreen.SetActive(false);
         deathScreen.SetActive(false);
@@ -43,7 +51,7 @@ public class Menus : MonoBehaviour
     public void DeathScreen()
     {
         audioManager.Play("Menu Music");
-        music.Pause();
+        mainMusic.Pause();
         Time.timeScale = 0;
         deathScreen.SetActive(true);
     }
