@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public float weaponSpawnTime;
     private float weaponTimer;
 
+    public float gameTime;
+
 
     private void Start()
     {
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        gameTime += Time.deltaTime;
+
         if (enemyTimer > 0)
         {
             enemyTimer -= Time.deltaTime;

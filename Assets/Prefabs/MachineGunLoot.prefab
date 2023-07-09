@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543326531446546134}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: barell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 543326531893014387}
   - component: {fileID: 543326531893014381}
   - component: {fileID: 543326531893014386}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 543326532302904330}
   - component: {fileID: 543326532302904331}
   - component: {fileID: 543326532302904328}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 7554601589780028255}
   - component: {fileID: 283709113212305948}
   - component: {fileID: 5667080004026913694}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MachineGunLoot
   m_TagString: MachineGun
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.12
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &283709113212305948
 Rigidbody:
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 543326532677220805}
   - component: {fileID: 543326532677220810}
   - component: {fileID: 543326532677220811}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543326532729618706}
   - component: {fileID: 1756442599621320096}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MachineGun'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 543326532759753822}
   - component: {fileID: 543326532759753816}
   - component: {fileID: 543326532759753817}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 543326532948995255}
   - component: {fileID: 543326532948995252}
   - component: {fileID: 543326532948995253}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,6 +858,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MachineGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 440c30641f4414e43825acd5817706cb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 440c30641f4414e43825acd5817706cb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 440c30641f4414e43825acd5817706cb, type: 3}

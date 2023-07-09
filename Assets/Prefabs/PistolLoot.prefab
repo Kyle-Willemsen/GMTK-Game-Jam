@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7240496678496391566}
   - component: {fileID: 7240496678496391564}
   - component: {fileID: 7240496678496391565}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 7240496678732153915}
   - component: {fileID: 7240496678732153892}
   - component: {fileID: 7240496678732153912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 7240496679069146334}
   - component: {fileID: 7240496679069146335}
   - component: {fileID: 7240496679069146328}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PistolLoot
   m_TagString: Pistol
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.1
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0.09}
 --- !u!54 &7240496679069146328
 Rigidbody:
@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 7240496679318780010}
   - component: {fileID: 7240496679318780011}
   - component: {fileID: 7240496679318779988}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 7240496679483833568}
   - component: {fileID: 7240496679483833569}
   - component: {fileID: 7240496679483833570}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7240496679555894503}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: barell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 7240496680290042497}
   - component: {fileID: 7240496680290042503}
   - component: {fileID: 7240496680290042496}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -825,6 +825,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Repeater
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af4ee913d437c7240963442fd16b9d47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: af4ee913d437c7240963442fd16b9d47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4ee913d437c7240963442fd16b9d47, type: 3}

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b4f152e0498484391a9f0d5a1facf03b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.13015562, g: 0.09557039, b: 0.12492945, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1354,7 +1354,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.3
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2832,7 +2832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 888, y: -479}
+  m_AnchoredPosition: {x: 763, y: -422}
   m_SizeDelta: {x: 93.0254, y: 83.5798}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &969578478
@@ -3321,7 +3321,7 @@ GameObject:
   - component: {fileID: 1175896371}
   - component: {fileID: 1175896367}
   - component: {fileID: 1175896372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3339,13 +3339,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2.5
+  m_Height: 1
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.51, z: 0}
+  m_Center: {x: 0, y: -0.3, z: 0}
 --- !u!4 &1175896371
 Transform:
   m_ObjectHideFlags: 0
@@ -4012,6 +4012,7 @@ MonoBehaviour:
   - {fileID: 1944462209}
   enemySpawnTime: 4
   weaponSpawnTime: 4
+  gameTime: 0
 --- !u!4 &1491868021
 Transform:
   m_ObjectHideFlags: 0
@@ -4039,7 +4040,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0b00cbdccedb0f140af382c47bc82570, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4138,67 +4139,67 @@ MonoBehaviour:
   sounds:
   - name: HitMarker
     clip: {fileID: 8300000, guid: 77a2bf83bcd146c48b22db0c866f8a73, type: 3}
-    volume: 0.7
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - name: Ouch
     clip: {fileID: 8300000, guid: 29390e9c30ab68d4fa06244cc386b4ea, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - name: Healthpack
     clip: {fileID: 8300000, guid: 503fb7298d670ab47b269a5bbccf4d7e, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - name: Shotgun Cock
     clip: {fileID: 8300000, guid: b6dda4689498f1d48a8f1ecb5a4335be, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - name: Pistol Cock
     clip: {fileID: 8300000, guid: 08c6260ed699ada45b1546ff7f571eec, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - name: Machinegun Cock
     clip: {fileID: 8300000, guid: 979e05b618ed87d4fadc9797bd0f5b98, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - name: MachinegunShoot
     clip: {fileID: 8300000, guid: 68b2325a220698a4a825af54000df80e, type: 3}
-    volume: 0.6
+    volume: 0.3
     pitch: 1
     source: {fileID: 0}
   - name: PistolShoot
     clip: {fileID: 8300000, guid: fb165e93190f50e42a9c11205cbd901f, type: 3}
-    volume: 0.501
+    volume: 0.3
     pitch: 1
     source: {fileID: 0}
   - name: ShotgunShoot
     clip: {fileID: 8300000, guid: c40f3f78fd45e2841b5556e718429724, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - name: PlayerThrow
     clip: {fileID: 8300000, guid: 07c4abfc30fd35d4c988e54e12183ee6, type: 3}
-    volume: 0.6
+    volume: 0.3
     pitch: 1
     source: {fileID: 0}
   - name: PlayerPickUp
     clip: {fileID: 8300000, guid: 068a5c94c4ccc9542a40b43410bcf1d0, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: d6af8d5723566cf4bbbac469fb39acf2, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - name: Menu Music
     clip: {fileID: 8300000, guid: a73a50824b1048e4198bc9a96cfcc989, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
 --- !u!114 &1491868024
@@ -4215,6 +4216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1650647044}
   deathScreen: {fileID: 1460055099}
+  pauseButton: {fileID: 969578476}
 --- !u!1 &1506504029
 GameObject:
   m_ObjectHideFlags: 0
@@ -5339,7 +5341,7 @@ GameObject:
   - component: {fileID: 1817056904}
   - component: {fileID: 1817056903}
   - component: {fileID: 1817056902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5539,6 +5541,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LittleTimmy
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0cf3a1547626edf4f8bfb41535063244,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 0cf3a1547626edf4f8bfb41535063244,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cf3a1547626edf4f8bfb41535063244, type: 3}
 --- !u!1 &1893179454
@@ -5686,7 +5698,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1908694966}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PickUpLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5701,7 +5713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908694965}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000014901161, y: 0.09000003, z: 1.734}
+  m_LocalPosition: {x: -0.00000014901161, y: 0.09000003, z: 1.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6652,7 +6664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2044487744}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6748,7 +6760,7 @@ GameObject:
   - component: {fileID: 2058113301}
   - component: {fileID: 2058113300}
   - component: {fileID: 2058113299}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

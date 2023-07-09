@@ -27,10 +27,14 @@ public class ItemHands : MonoBehaviour
 
     private void Update()
     {
+
         forceImpulse = player.transform.forward * force + transform.up * upwardForce;
-        if (Input.GetKeyDown(KeyCode.Mouse0) && hasItem)
+        if (Input.GetKey(KeyCode.Mouse0) && hasItem)
         {
+            //Throw();
+            //Physics.IgnoreLayerCollision(7, 8);
             audioManager.Play("PlayerThrow");
+            //Physics.IgnoreLayerCollision(7, 8);
             Destroy(gameObject);
             GameObject clone = Instantiate(weapon, pickupLoc.position, Quaternion.identity);
             clone.GetComponent<Rigidbody>().AddForce(forceImpulse, ForceMode.Impulse);
@@ -38,12 +42,26 @@ public class ItemHands : MonoBehaviour
             //Invoke("EnableCollider", 0.5f);
             hasItem = false;
         }
-    }
 
-  //  private void EnableCollider()
-  //  {
-  //      pickupCol.enabled = true;
-  //  }
+
+    }
+   // private void Throw()
+   // {
+   //     Debug.Log("Throw");
+   //     Invoke("ResetColliders", 0.5f);
+   // }
+   //
+   // public void ResetColliders()
+   // {
+   //     Debug.Log("RESET");
+   //     Physics.IgnoreLayerCollision(7, 8, false);
+   //     
+   // }
+
+    //  private void EnableCollider()
+    //  {
+    //      pickupCol.enabled = true;
+    //  }
 
     //private void OnTriggerEnter(Collider other)
     //{
