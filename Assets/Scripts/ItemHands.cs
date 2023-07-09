@@ -29,7 +29,7 @@ public class ItemHands : MonoBehaviour
     {
 
         forceImpulse = player.transform.forward * force + transform.up * upwardForce;
-        if (Input.GetKey(KeyCode.Mouse0) && hasItem)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && hasItem || Input.GetKeyDown(KeyCode.Space) && hasItem)
         {
             //Throw();
             //Physics.IgnoreLayerCollision(7, 8);

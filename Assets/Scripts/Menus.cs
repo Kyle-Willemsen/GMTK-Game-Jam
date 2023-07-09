@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Menus : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Menus : MonoBehaviour
     AudioManager audioManager;
     AudioSource mainMusic;
     public GameObject pauseButton;
+
+    public TextMeshProUGUI finalGameTime;
 
     private void Start()
     {
@@ -60,6 +63,8 @@ public class Menus : MonoBehaviour
         Time.timeScale = 0;
         deathScreen.SetActive(true);
         pauseButton.SetActive(false);
+
+        finalGameTime.text = "He survived " + GetComponent<GameManager>().gameTime.ToString("0") + " seconds in hell";
     }
 
     public void LoadMainMenu()

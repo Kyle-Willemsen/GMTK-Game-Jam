@@ -19,6 +19,7 @@ public class ItemPickUp : MonoBehaviour
         playerTransform = GameObject.Find("PickUpLocation").transform;
         heroHands = GameObject.Find("HeroHands").transform;
         audioManager = FindObjectOfType<AudioManager>();
+        Physics.IgnoreLayerCollision(6, 7);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     private float weaponTimer;
 
     public float gameTime;
+    public TextMeshProUGUI gameTimeText;
+
 
 
     private void Start()
@@ -28,7 +31,24 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        //gameTime = (Mathf.RoundToInt(gameTime));
+        gameTimeText.text = gameTime.ToString("0");
         gameTime += Time.deltaTime;
+        if (gameTime > 30)
+        {
+            enemySpawnTime = 5;
+            weaponSpawnTime = 4.5f;
+        }
+        if (gameTime > 60)
+        {
+            enemySpawnTime = 4;
+            weaponSpawnTime = 3.5f;
+        }
+        if (gameTime > 120)
+        {
+            enemySpawnTime = 3;
+            weaponSpawnTime = 2.5f;
+        }
 
         if (enemyTimer > 0)
         {
