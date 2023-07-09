@@ -36,7 +36,7 @@ public class ItemHands : MonoBehaviour
             audioManager.Play("PlayerThrow");
             //Physics.IgnoreLayerCollision(7, 8);
             Destroy(gameObject);
-            GameObject clone = Instantiate(weapon, pickupLoc.position, Quaternion.identity);
+            GameObject clone = Instantiate(weapon, pickupLoc.position, weapon.transform.rotation);
             clone.GetComponent<Rigidbody>().AddForce(forceImpulse, ForceMode.Impulse);
             //transform.parent = null;
             //Invoke("EnableCollider", 0.5f);
