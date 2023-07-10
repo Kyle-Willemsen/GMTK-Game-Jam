@@ -24,11 +24,11 @@ public class Menus : MonoBehaviour
 
     public void Resume()
     {
-        audioManager.Stop("Menu Music");
-        mainMusic.Play();
         Time.timeScale = 1;
         pauseScreen.SetActive(false);
         pauseButton.SetActive(true);
+        mainMusic.Play();
+        audioManager.Stop("Menu Music");
     }
 
     public void Play()
@@ -42,27 +42,27 @@ public class Menus : MonoBehaviour
 
     public void Pause()
     {
+        Time.timeScale = 0;
         audioManager.Play("Menu Music");
         mainMusic.Pause();
-        Time.timeScale = 0;
         pauseScreen.SetActive(true);
         pauseButton.SetActive(false);
     }
 
     public void Retry()
     {
+        Time.timeScale = 1;
         pauseScreen.SetActive(false);
         deathScreen.SetActive(false);
         SceneManager.LoadScene("Main Menu");
         SceneManager.LoadScene("MainScene");
-        Time.timeScale = 1;
         pauseButton.SetActive(true);
     }
     public void DeathScreen()
     {
+        Time.timeScale = 0;
         audioManager.Play("Menu Music");
         mainMusic.Pause();
-        Time.timeScale = 0;
         deathScreen.SetActive(true);
         pauseButton.SetActive(false);
 
