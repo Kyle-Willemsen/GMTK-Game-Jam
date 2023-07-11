@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     public GameObject floatingText;
     AudioManager audioManager;
 
+
     //public float knockbackForce;
     //public float knockbackTime;
     //private float knockbackCounter;
@@ -32,7 +33,6 @@ public class Enemy : MonoBehaviour
         navAgent = gameObject.GetComponent<NavMeshAgent>();
         heroMovement = GameObject.Find("Hero").GetComponent<HeroMovement>();
         heroMovement.AllEnemies.Add(this.gameObject);
-
         navAgent.speed = baseSpeed;
         baseSpeed = currentSpeed;
         canAttack = true;
@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
             heroMovement.AllEnemies.Remove(this.gameObject);
             heroMovement.nearestDistance = 1000;
         }
+
     }
 
     public void TakeDamage(float damage)//, Vector3 direction)

@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 400
   currentSpeed: 5
-  baseSpeed: 6
+  baseSpeed: 5
   damage: 20
   attackReset: 1
   floatingText: {fileID: 7540229771855612757, guid: a499b2a6309ac58418659e2d81af9bc5,

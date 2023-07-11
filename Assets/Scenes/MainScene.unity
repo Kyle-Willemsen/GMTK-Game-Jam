@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 1000
-  m_AmbientSkyColor: {r: 0.2216981, g: 0.48113218, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0.03404385, b: 0.16981131, a: 1}
   m_AmbientEquatorColor: {r: 0.3773585, g: 0.019579923, b: 0.047579996, a: 1}
   m_AmbientGroundColor: {r: 0.103773594, g: 0.005384479, b: 0.0130845, a: 1}
   m_AmbientIntensity: 1
@@ -2778,6 +2778,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385570116255219578, guid: 53e7ed00d97cdb04cafebf95ffb9738a,
+        type: 3}
+      propertyPath: playerSpeed
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8385570116255219581, guid: 53e7ed00d97cdb04cafebf95ffb9738a,
         type: 3}
@@ -6209,6 +6214,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1824150095, guid: 73f089e51ce15c840a03a2a9cd8c00db, type: 3}
+      propertyPath: m_Size.z
+      value: 4.925705
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824150095, guid: 73f089e51ce15c840a03a2a9cd8c00db, type: 3}
+      propertyPath: m_Center.z
+      value: 7.777012
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824150096, guid: 73f089e51ce15c840a03a2a9cd8c00db, type: 3}
+      propertyPath: m_Size.x
+      value: 3.932846
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824150096, guid: 73f089e51ce15c840a03a2a9cd8c00db, type: 3}
+      propertyPath: m_Center.x
+      value: -71.4696
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824150097, guid: 73f089e51ce15c840a03a2a9cd8c00db, type: 3}
+      propertyPath: m_Size.x
+      value: 5.401848
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824150097, guid: 73f089e51ce15c840a03a2a9cd8c00db, type: 3}
+      propertyPath: m_Center.x
+      value: 20.013577
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824150098, guid: 73f089e51ce15c840a03a2a9cd8c00db, type: 3}
+      propertyPath: m_Size.z
+      value: 4.808487
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824150098, guid: 73f089e51ce15c840a03a2a9cd8c00db, type: 3}
+      propertyPath: m_Center.z
+      value: -66.73751
+      objectReference: {fileID: 0}
     - target: {fileID: 2095339696457066840, guid: 73f089e51ce15c840a03a2a9cd8c00db,
         type: 3}
       propertyPath: m_Name
