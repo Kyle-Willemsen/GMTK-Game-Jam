@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 2.4
   m_FrequencyGain: 5
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &41289804
@@ -1840,7 +1840,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 8
-  playerSpeed: 5
+  playerSpeed: 6
   maxHealth: 100
   currentHealth: 0
   walkPointRange: 5
@@ -1849,9 +1849,9 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
-  pistolRange: 25
+  pistolRange: 35
   shotgunRange: 18
-  machinegunRange: 30
+  machinegunRange: 25
   isPistol: 0
   isShotgun: 0
   isMachinegun: 0

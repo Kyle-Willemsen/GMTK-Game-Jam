@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     {
         menus = GetComponent<Menus>();
         enemyTimer = enemySpawnTime;
+        Physics.IgnoreLayerCollision(6, 9);
     }
 
 

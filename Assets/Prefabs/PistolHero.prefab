@@ -148,7 +148,7 @@ MonoBehaviour:
   pistolBullet: {fileID: 1104375151171682802, guid: ff56f2da4a3410f48881750911c37408,
     type: 3}
   barrel: {fileID: 5240850799664982273}
-  bulletSpeed: 30
+  bulletSpeed: 40
   fireRate: 0.6
   lifeSpan: 6
 --- !u!1 &5240850798939035831
