@@ -43,6 +43,8 @@ public class HeroMovement : MonoBehaviour
     public GameObject arm1;
     public GameObject arm2;
 
+    public float raycastDistance;
+
 
    // public float knockbackForce;
    // public float knockbackTime;
@@ -192,6 +194,9 @@ public class HeroMovement : MonoBehaviour
     {
         transform.LookAt(AllEnemies[0].transform);
         navAgent.SetDestination(transform.position - AllEnemies[0].transform.position);
+
+        RaycastHit hit;
+        //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back) * raycastDistance, Color.red))
     }
 
     public void TakeDamage(int damage)//, Vector3 direction)
