@@ -1776,14 +1776,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519852846}
   serializedVersion: 2
-  m_Mass: 4
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 36
-  m_CollisionDetection: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!33 &519852851
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1800,13 +1800,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519852846}
   m_LocalRotation: {x: -0, y: -0.97728896, z: -0, w: -0.21191128}
-  m_LocalPosition: {x: 6.38, y: 1, z: 8.6}
+  m_LocalPosition: {x: 4.26, y: 1, z: 2.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1781310443}
-  - {fileID: 979351529}
   - {fileID: 1760921124}
+  - {fileID: 979351529}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -204.469, z: 0}
@@ -1856,13 +1856,16 @@ MonoBehaviour:
   isMachinegun: 0
   AllEnemies: []
   NearestEnemy: {fileID: 0}
-  nearestDistance: 1000
+  nearestDistance: 100
   tmpro: {fileID: 2071874523}
   ammoCounter: 0
   hasWeapon: 0
   arm1: {fileID: 1779302333}
   arm2: {fileID: 536000525}
-  raycastDistance: 0
+  raycastDistance: 5
+  boundary:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!65 &519852855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2792,7 +2795,7 @@ PrefabInstance:
     - target: {fileID: 8385570116255219581, guid: 53e7ed00d97cdb04cafebf95ffb9738a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.32
+      value: -5.64
       objectReference: {fileID: 0}
     - target: {fileID: 8385570116255219581, guid: 53e7ed00d97cdb04cafebf95ffb9738a,
         type: 3}
@@ -2802,7 +2805,7 @@ PrefabInstance:
     - target: {fileID: 8385570116255219581, guid: 53e7ed00d97cdb04cafebf95ffb9738a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.23
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 8385570116255219581, guid: 53e7ed00d97cdb04cafebf95ffb9738a,
         type: 3}
@@ -4301,15 +4304,9 @@ MonoBehaviour:
   enemies:
   - {fileID: 3665437936719099665, guid: c888a2b53c9a92748bf0f1ce0e60e976, type: 3}
   - {fileID: 6733448158070925067, guid: e84f3322a7263394d94e4ed42ff762d5, type: 3}
-  - {fileID: 1002827195256389348, guid: e5eafc07ffdb5b64c8063102924ced48, type: 3}
   weapons:
-  - {fileID: 543326532313431550, guid: 7d667600165de1b4f9d84f511f08b491, type: 3}
   - {fileID: 7240496679069146329, guid: 5dfc44c9986e3e246b609ac45ebe3477, type: 3}
   - {fileID: 5990741870576437589, guid: 2e98782684f3c4b4bbdc5e563a985608, type: 3}
-  - {fileID: 7240496679069146329, guid: 5dfc44c9986e3e246b609ac45ebe3477, type: 3}
-  - {fileID: 5990741870576437589, guid: 2e98782684f3c4b4bbdc5e563a985608, type: 3}
-  - {fileID: 543326532313431550, guid: 7d667600165de1b4f9d84f511f08b491, type: 3}
-  - {fileID: 1681274909048049514, guid: 7d5d14dbcd8661d43b3d5e0de02f6e7d, type: 3}
   weaponSpawnPoints:
   - {fileID: 1669889245}
   - {fileID: 77398892}
@@ -4334,6 +4331,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1634903404}
   - {fileID: 1944462209}
+  demon: {fileID: 1002827195256389348, guid: e5eafc07ffdb5b64c8063102924ced48, type: 3}
+  healthpack: {fileID: 1681274909048049514, guid: 7d5d14dbcd8661d43b3d5e0de02f6e7d,
+    type: 3}
+  machinegun: {fileID: 543326532313431550, guid: 7d667600165de1b4f9d84f511f08b491,
+    type: 3}
   enemySpawnTime: 6
   weaponSpawnTime: 5
   gameTime: 0
@@ -5121,7 +5123,7 @@ RectTransform:
   m_Children:
   - {fileID: 2071874525}
   m_Father: {fileID: 519852852}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 29.068, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

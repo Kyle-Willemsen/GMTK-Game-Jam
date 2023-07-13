@@ -19,6 +19,10 @@ public class Enemy : MonoBehaviour
     public GameObject floatingText;
     AudioManager audioManager;
 
+    //private Vector3 forceMode;
+    //public float force;
+   // public float upwardForce;
+
 
     //public float knockbackForce;
     //public float knockbackTime;
@@ -40,6 +44,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        
         navAgent.SetDestination(player.position);
        // if (knockbackCounter <= 0)
        // {
@@ -75,11 +80,14 @@ public class Enemy : MonoBehaviour
         {
             if (canAttack)
             {
+                //forceMode = -other.transform.forward * force + other.transform.up * upwardForce;
+
                 Vector3 hitDireciton = other.transform.position - transform.position;
                 hitDireciton = hitDireciton.normalized;
 
                 canAttack = false;
                 other.GetComponent<HeroMovement>().TakeDamage(damage);//, hitDireciton);
+                //other.GetComponent<Rigidbody>().AddForce(forceMode, ForceMode.Impulse);
                 Invoke("AttackReset", attackReset);
             }
         }

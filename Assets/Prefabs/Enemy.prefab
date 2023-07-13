@@ -107,6 +107,8 @@ MonoBehaviour:
   attackReset: 1
   floatingText: {fileID: 7540229771855612757, guid: a499b2a6309ac58418659e2d81af9bc5,
     type: 3}
+  force: 40
+  upwardForce: 100
 --- !u!95 &1264903204587691187
 Animator:
   serializedVersion: 5

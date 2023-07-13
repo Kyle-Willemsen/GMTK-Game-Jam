@@ -44,7 +44,7 @@ public class HeroMovement : MonoBehaviour
     public GameObject arm2;
 
     public float raycastDistance;
-
+    public LayerMask boundary;
 
    // public float knockbackForce;
    // public float knockbackTime;
@@ -62,6 +62,7 @@ public class HeroMovement : MonoBehaviour
 
     private void Update()
     {
+
         tmpro.text = ammoCounter + "";
 
         if (ammoCounter <= 0)
@@ -139,7 +140,7 @@ public class HeroMovement : MonoBehaviour
             currentHealth = 100;
         }
 
-
+        
         //AllEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         for (int i = 0; i < AllEnemies.Count; i++)
@@ -150,13 +151,14 @@ public class HeroMovement : MonoBehaviour
             {
                 NearestEnemy = AllEnemies[i];
                 nearestDistance = distance;
-                transform.LookAt(AllEnemies[i].transform);
+                transform.LookAt(NearestEnemy.transform);
             }
         }
     }
 
     private void Patrolling()
     {
+        Debug.Log("Patrolling");
         if (!walkPointSet)
         {
             SearchWalkPoint();
@@ -181,6 +183,7 @@ public class HeroMovement : MonoBehaviour
     }
     private void SearchWalkPoint()
     {
+        Debug.Log("Searching");
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
@@ -193,10 +196,16 @@ public class HeroMovement : MonoBehaviour
     private void Retreat()
     {
         transform.LookAt(AllEnemies[0].transform);
-        navAgent.SetDestination(transform.position - AllEnemies[0].transform.position);
+        navAgent.SetDestination(-transform.forward - AllEnemies[0].transform.position);
 
-        RaycastHit hit;
-        //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back) * raycastDistance, Color.red))
+       RaycastHit hit;
+        if (Physics.Raycast(transform.position, -transform.forward, out hit, raycastDistance, boundary))
+        {
+            Debug.DrawLine(transform.position, -transform.forward * raycastDistance, Color.yellow);
+            navAgent.SetDestination(transform.right);
+            //Destroy(gameObject);
+        }
+       
     }
 
     public void TakeDamage(int damage)//, Vector3 direction)
